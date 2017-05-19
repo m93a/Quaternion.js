@@ -1,5 +1,5 @@
 /**
- * @license Quaternion.js v1.0.0 22/02/2016
+ * @license Quaternion.js v2.0.0 22/02/2016
  *
  * Copyright (c) 2016, Robert Eisele (robert@xarg.org)
  * Dual licensed under the MIT or GPL Version 2 licenses.
