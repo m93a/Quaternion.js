@@ -236,7 +236,7 @@
   }
 
 
-  const ComplexArithmetics = {
+  const QuaternionArithmetics = {
     [Symbol.for('arithmetics-additive-group')]: true,
     [Symbol.for('arithmetics-ring')]: true,
     [Symbol.for('arithmetics-division-ring')]: true,
@@ -290,6 +290,9 @@
     'x': 0,
     'y': 0,
     'z': 0,
+
+    [Symbol.for('arithmetics')]: QuaternionArithmetics,
+
     /**
      * Adds two quaternions Q1 and Q2
      *
