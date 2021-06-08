@@ -235,6 +235,56 @@
     parse(this, w, x, y, z);
   }
 
+
+  const ComplexArithmetics = {
+    [Symbol.for('arithmetics-additive-group')]: true,
+    [Symbol.for('arithmetics-ring')]: true,
+    [Symbol.for('arithmetics-division-ring')]: true,
+    [Symbol.for('arithmetics-vector-space')]: true,
+    [Symbol.for('arithmetics-normed-vector-space')]: true,
+    [Symbol.for('arithmetics-normed-division-ring')]: true,
+
+    isCommutative: false,
+
+    zero() { return Quaternion.ZERO.clone() },
+    one() { return Quaternion.ONE.clone() },
+    epsilon() { return new Quaternion(Quaternion.EPSILON) },
+
+    fromNumber(a) { return new Quaternion(a); },
+    fromReal(a) { return new Quaternion(a); },
+
+    real(q) { return q.w; },
+    imag(q) { return new Quaternion(0, q.x, q.y, q.z); },
+
+    conj(q) { return q.conjugate(); },
+    neg(q) { return q.neg(); },
+    inv(q) { return q.inverse(); },
+
+    add(q, p) { return q.add(p); },
+    sub(q, p) { return q.sub(p); },
+    mul(q, p) { return q.mul(p); },
+    div(q, p) { return q.div(p); },
+
+    pow(q, p) { return q.pow(p); },
+    exp(q) { return q.exp(); },
+    expm1(q) { return q.exp().sub(1); },
+    log(q) { return q.log() },
+    log1p(q) { return q.add(1).log() },
+
+    normSq({w, x, y, z}) { return w*w + x*x + y*y + z*z; },
+    norm(q) { return q.norm() },
+    scale(q, p) { return q.mul(p); },
+
+    isNaN(q) { return q.isNaN(); },
+    isFinite(q) { return q.isFinite(); },
+    equals(q, p) { return q.equals(p); },
+
+    approximatelyEquals(z, w, epsilon) {
+        return z.sub(w).norm() < epsilon
+    }
+  }
+
+
   Quaternion.prototype = {
     'w': 1,
     'x': 0,
